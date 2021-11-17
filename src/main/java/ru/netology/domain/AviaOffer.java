@@ -16,7 +16,6 @@ public class AviaOffer implements Comparable<AviaOffer> {
 
     @Override
     public int compareTo(AviaOffer o) {
-        AviaOffer aviaOffer = (AviaOffer) o;
-        return this.price - aviaOffer.price;
+        return this.price - o.price;
     }
 }
