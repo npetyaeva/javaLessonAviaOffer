@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 public class AviaOfferManager {
     private final AviaOfferRepository repository;
-    private final Comparator priceComparator = new AviaOfferByPriceAscComparator();
+    private final Comparator<AviaOffer> timeComparator = new AviaOfferByPriceAscComparator();
 
     public AviaOfferManager(AviaOfferRepository repository) { this.repository = repository; }
 
@@ -47,7 +47,7 @@ public class AviaOfferManager {
             }
         }
         if (result.length == 0) { return null; }
-        Arrays.sort(result, priceComparator);
+        Arrays.sort(result, timeComparator);
         return result;
     }
 

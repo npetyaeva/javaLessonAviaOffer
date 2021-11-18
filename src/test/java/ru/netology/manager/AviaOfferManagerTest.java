@@ -96,4 +96,10 @@ class AviaOfferManagerTest {
         AviaOffer[] actual = aviaOfferManager.findSameAirportsComparator("SVO", "WAW");
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void shouldFindSameAirportsComparatorNull() {
+        AviaOffer[] actual = aviaOfferManager.findSameAirportsComparator("VKO", "WAW");
+        assertNull(actual);
+    }
 }
