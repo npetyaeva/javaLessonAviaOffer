@@ -18,4 +18,12 @@ public class AviaOffer implements Comparable<AviaOffer> {
     public int compareTo(AviaOffer o) {
         return this.price - o.price;
     }
+
+    public boolean matches(String text) {
+        return departureAirport.contains(text) || arrivalAirport.contains(text);
+    }
+
+    public boolean matchesAirports(String from, String to) {
+        return departureAirport.contains(from) && arrivalAirport.contains(to);
+    }
 }
