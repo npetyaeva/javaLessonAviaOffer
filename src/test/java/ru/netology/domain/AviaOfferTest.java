@@ -19,6 +19,7 @@ class AviaOfferTest {
         AviaOffer[] actual = new AviaOffer[]{ third, second, first };
 
         Arrays.sort(actual);
+
         assertArrayEquals(expected, actual);
     }
 
@@ -113,5 +114,19 @@ class AviaOfferTest {
     void shouldCanEqual() {
         boolean actual = first.equals(fifth);
         assertFalse(actual);
+    }
+
+    @Test
+    void shouldTestHashCode() {
+        int expected = -612626038;
+        int actual = first.hashCode();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldTestToString() {
+        String expected = "AviaOffer(id=1, price=14363, departureAirport=SVO, arrivalAirport=WAW, flightTime=140)";
+        String actual = first.toString();
+        assertEquals(expected, actual);
     }
 }
