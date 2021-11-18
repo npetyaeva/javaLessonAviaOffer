@@ -6,7 +6,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import ru.netology.domain.AviaOffer;
+import ru.netology.domain.AviaOfferByPriceAscComparator;
 import ru.netology.repository.AviaOfferRepository;
+
+import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.doReturn;
@@ -25,7 +28,7 @@ class AviaOfferManagerTest {
     private final AviaOffer second = new AviaOffer(2, 15329, "SVO", "WAW", 140);
     private final AviaOffer third = new AviaOffer(3, 18692, "SVO", "WAW", 140);
     private final AviaOffer fourth = new AviaOffer(4, 14363, "WAW", "SVO", 140);
-    private final AviaOffer fifth = new AviaOffer(5, 10000, "SVO", "WAW", 140);
+    private final AviaOffer fifth = new AviaOffer(5, 10000, "SVO", "WAW", 100);
 
     @BeforeEach
     public void setUp() {
@@ -83,5 +86,14 @@ class AviaOfferManagerTest {
     void shouldSearchByNotExist() {
         AviaOffer[] actual = aviaOfferManager.searchBy("VKO");
         assertNull(actual);
+    }
+
+    @Test
+    void shouldFindSameAirportsComparator() {
+        aviaOfferManager.add(fourth);
+        aviaOfferManager.add(fifth);
+        AviaOffer[] expected = new AviaOffer[] { fifth, first, second, third };
+        AviaOffer[] actual = aviaOfferManager.findSameAirportsComparator("SVO", "WAW");
+        assertArrayEquals(expected, actual);
     }
 }
