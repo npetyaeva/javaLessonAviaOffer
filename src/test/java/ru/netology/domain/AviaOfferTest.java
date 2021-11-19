@@ -16,8 +16,8 @@ class AviaOfferTest {
 
     @Test
     void shouldCompareTo() {
-        AviaOffer[] expected = new AviaOffer[]{ first, second, third };
-        AviaOffer[] actual = new AviaOffer[]{ third, second, first };
+        AviaOffer[] expected = new AviaOffer[]{first, second, third};
+        AviaOffer[] actual = new AviaOffer[]{third, second, first};
 
         Arrays.sort(actual);
         assertArrayEquals(expected, actual);
@@ -57,8 +57,8 @@ class AviaOfferTest {
 
     @Test
     void shouldGetDepartureAirport() {
-        String  expected = "SVO";
-        String  actual = first.getDepartureAirport();
+        String expected = "SVO";
+        String actual = first.getDepartureAirport();
         assertEquals(expected, actual);
     }
 
@@ -94,9 +94,9 @@ class AviaOfferTest {
 
     @Test
     void shouldSetDepartureAirport() {
-        String  expected = "VKO";
+        String expected = "VKO";
         first.setDepartureAirport("VKO");
-        String  actual = first.getDepartureAirport();
+        String actual = first.getDepartureAirport();
         assertEquals(expected, actual);
     }
 

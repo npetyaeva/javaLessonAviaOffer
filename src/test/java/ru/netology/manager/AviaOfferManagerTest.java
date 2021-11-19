@@ -39,14 +39,14 @@ class AviaOfferManagerTest {
 
     @Test
     void shouldGetAll() {
-        AviaOffer[] expected = new AviaOffer[] { first, second, third };
+        AviaOffer[] expected = new AviaOffer[]{first, second, third};
         AviaOffer[] actual = aviaOfferManager.getAll();
         assertArrayEquals(expected, actual);
     }
 
     @Test
     void shouldAdd() {
-        AviaOffer[] expected = new AviaOffer[] { first, second, third, fourth };
+        AviaOffer[] expected = new AviaOffer[]{first, second, third, fourth};
         aviaOfferManager.add(fourth);
         AviaOffer[] actual = aviaOfferManager.getAll();
         assertArrayEquals(expected, actual);
@@ -55,7 +55,7 @@ class AviaOfferManagerTest {
     @Test
     void shouldFindSameAirportsExist() {
         aviaOfferManager.add(fourth);
-        AviaOffer[] expected = new AviaOffer[] { fourth };
+        AviaOffer[] expected = new AviaOffer[]{fourth};
         AviaOffer[] actual = aviaOfferManager.findSameAirports("WAW", "SVO");
         assertArrayEquals(expected, actual);
     }
@@ -63,7 +63,7 @@ class AviaOfferManagerTest {
     @Test
     void shouldFindSameAirportsExistSort() {
         aviaOfferManager.add(fifth);
-        AviaOffer[] expected = new AviaOffer[] { fifth, first, second, third };
+        AviaOffer[] expected = new AviaOffer[]{fifth, first, second, third};
         AviaOffer[] actual = aviaOfferManager.findSameAirports("SVO", "WAW");
         assertArrayEquals(expected, actual);
     }
@@ -77,7 +77,7 @@ class AviaOfferManagerTest {
     @Test
     void shouldSearchByExist() {
         aviaOfferManager.add(fourth);
-        AviaOffer[] expected = new AviaOffer[] { first, fourth, second, third };
+        AviaOffer[] expected = new AviaOffer[]{first, fourth, second, third};
         AviaOffer[] actual = aviaOfferManager.searchBy("WAW");
         assertArrayEquals(expected, actual);
     }
@@ -92,7 +92,7 @@ class AviaOfferManagerTest {
     void shouldFindSameAirportsComparator() {
         aviaOfferManager.add(fourth);
         aviaOfferManager.add(fifth);
-        AviaOffer[] expected = new AviaOffer[] { fifth, first, second, third };
+        AviaOffer[] expected = new AviaOffer[]{fifth, first, second, third};
         AviaOffer[] actual = aviaOfferManager.findSameAirportsComparator("SVO", "WAW");
         assertArrayEquals(expected, actual);
     }
