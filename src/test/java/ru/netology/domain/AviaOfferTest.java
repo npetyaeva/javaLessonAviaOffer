@@ -11,16 +11,34 @@ class AviaOfferTest {
     private final AviaOffer second = new AviaOffer(2, 15329, "SVO", "WAW", 140);
     private final AviaOffer third = new AviaOffer(3, 18692, "SVO", "WAW", 140);
     private final AviaOffer fourth = new AviaOffer(1, 14363, "SVO", "WAW", 140);
-    private final Object fifth = new Object();
+    private final AviaOffer fifth = new AviaOffer(5, 14363, "WAW", "WAW", 140);
+    private final Object sixth = new Object();
 
     @Test
     void shouldCompareTo() {
-        AviaOffer[] expected = new AviaOffer[]{ first, second, third };
-        AviaOffer[] actual = new AviaOffer[]{ third, second, first };
+        AviaOffer[] expected = new AviaOffer[]{first, second, third};
+        AviaOffer[] actual = new AviaOffer[]{third, second, first};
 
         Arrays.sort(actual);
-
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldMatchesAirportsTrue() {
+        boolean actual = fifth.matchesAirports("WAW", "WAW");
+        assertTrue(actual);
+    }
+
+    @Test
+    void shouldMatchesAirportsFalse() {
+        boolean actual = fifth.matchesAirports("SVO", "WAW");
+        assertFalse(actual);
+    }
+
+    @Test
+    void shouldMatchesAirportsFalse1() {
+        boolean actual = fifth.matchesAirports("WAW", "SVO");
+        assertFalse(actual);
     }
 
     @Test
@@ -39,8 +57,8 @@ class AviaOfferTest {
 
     @Test
     void shouldGetDepartureAirport() {
-        String  expected = "SVO";
-        String  actual = first.getDepartureAirport();
+        String expected = "SVO";
+        String actual = first.getDepartureAirport();
         assertEquals(expected, actual);
     }
 
@@ -76,9 +94,9 @@ class AviaOfferTest {
 
     @Test
     void shouldSetDepartureAirport() {
-        String  expected = "VKO";
+        String expected = "VKO";
         first.setDepartureAirport("VKO");
-        String  actual = first.getDepartureAirport();
+        String actual = first.getDepartureAirport();
         assertEquals(expected, actual);
     }
 
@@ -112,7 +130,7 @@ class AviaOfferTest {
 
     @Test
     void shouldCanEqual() {
-        boolean actual = first.equals(fifth);
+        boolean actual = first.equals(sixth);
         assertFalse(actual);
     }
 }
