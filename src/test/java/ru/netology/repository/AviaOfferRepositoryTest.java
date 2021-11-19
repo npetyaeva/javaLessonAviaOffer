@@ -3,7 +3,8 @@ package ru.netology.repository;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.AviaOffer;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AviaOfferRepositoryTest {
     private AviaOfferRepository repository = new AviaOfferRepository();
@@ -16,7 +17,7 @@ class AviaOfferRepositoryTest {
 
     @Test
     void shouldSaveNoArg() {
-        AviaOffer[] expected = { emptyItem };
+        AviaOffer[] expected = {emptyItem};
         repository.save(emptyItem);
         AviaOffer[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
@@ -24,7 +25,7 @@ class AviaOfferRepositoryTest {
 
     @Test
     void shouldSaveAllArg() {
-        AviaOffer[] expected = { first };
+        AviaOffer[] expected = {first};
         repository.save(first);
         AviaOffer[] actual = repository.findAll();
         assertArrayEquals(expected, actual);
@@ -39,7 +40,7 @@ class AviaOfferRepositoryTest {
 
     @Test
     void shouldFindAll() {
-        AviaOffer[] expected = { first, second, third };
+        AviaOffer[] expected = {first, second, third};
         repository.save(first);
         repository.save(second);
         repository.save(third);
@@ -69,7 +70,7 @@ class AviaOfferRepositoryTest {
 
     @Test
     void shouldRemoveByIdItemExists() {
-        AviaOffer[] expected = { first, second };
+        AviaOffer[] expected = {first, second};
         repository.save(first);
         repository.save(second);
         repository.save(third);
@@ -80,7 +81,7 @@ class AviaOfferRepositoryTest {
 
     @Test
     void shouldRemoveByIdItemNotExists() {
-        AviaOffer[] expected = { first, second, third };
+        AviaOffer[] expected = {first, second, third};
         repository.save(first);
         repository.save(second);
         repository.save(third);
