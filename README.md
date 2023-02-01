@@ -8,3 +8,4 @@
 
 ## Branch comparator
 - "Улучшить" сервис, создав метод `findAll(String from, String to, Comparator<Ticket> comparator)`
+
